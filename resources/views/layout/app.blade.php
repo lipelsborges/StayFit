@@ -87,7 +87,7 @@
             @if(request()->routeIs('index_page'))
             <div class="text-center mt-5">
                 <h1 class="display-4 text-secondary" id="titulo-dashboard">Bem-vindo ao <strong class="text-primary">Stay</strong><strong>Fit</strong></h1>
-                <p class="lead text-muted">Gerencie seus alunos, avaliações, exercícios e planos de forma fácil e eficiente.</p>
+                <p class="lead text-muted"><strong>Gerencie seus alunos, avaliações, exercícios e planos de forma fácil e eficiente.</strong></p>
             </div>
 
             <div class="container mt-5">
