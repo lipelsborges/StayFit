@@ -1,6 +1,7 @@
 @extends('layout.app')
+@section('title', 'Alunos - StayFit')
 
-
+@section('content')
 <div class="container mt-4">
 
 
@@ -82,4 +83,4 @@
     </table>
     
 </div>
-
+@endsection
