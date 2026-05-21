@@ -4,6 +4,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\ExerciciosController;
+use App\Http\Controllers\PlanosController;
 use Illuminate\Support\Facades\Route;
 
 //layout
@@ -18,6 +19,12 @@ Route::get('/aluno/editar', [AlunosController::class, 'editarAluno'])->name('alu
 //Avaliação
 Route::get('/avaliacao', [AvaliacaoController::class, 'index'])->name('avaliacao.index');
 
-
 //Exercicios
 Route::get('/exercicios', [ExerciciosController::class, 'index'])->name('exercicios.index');
+Route::get('/exercicios/cadastrar', [ExerciciosController::class, 'cadastrar'])->name('exercicios.cadastrar');
+Route::get('/exercicios/editar', [ExerciciosController::class, 'editar'])->name('exercicios.editar');
+
+//Planos
+Route::get('/planos', [PlanosController::class, 'index'])->name('planos.index');
+Route::get('/planos/cadastrar', [PlanosController::class, 'cadastrar'])->name('planos.cadastrar');
+Route::get('/planos/editar', [PlanosController::class, 'editar'])->name('planos.editar');

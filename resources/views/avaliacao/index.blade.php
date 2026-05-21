@@ -1,5 +1,6 @@
 @extends('layout.app')
-
+@section('title', 'Avaliação - StayFit')
+@section('content')
 
 <div class="container mt-4 ">
 
@@ -64,3 +65,4 @@
         </tbody>
     </table>
 </div>
+@endsection
