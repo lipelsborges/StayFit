@@ -1,6 +1,6 @@
-
-
 @extends('layout.app')
+@section('title', 'Exercícios - StayFit')
+@section('content')
 
 <div class="container mt-4 ">
 
@@ -17,7 +17,7 @@
             <a class="btn btn-outline-secondary btn-sm" href="/">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
-            <a class="btn btn-success btn-sm" href="">
+            <a class="btn btn-success btn-sm" href="{{ route('exercicios.cadastrar') }}">
                 <i class="fa-solid fa-plus"></i> Cadastrar Exercício
             </a>
         </div>
@@ -74,7 +74,7 @@
                 <td>Intermediário</td>
                 <td><a href="https://www.youtube.com/watch?v=example" target="_blank">Ver Exercício</a></td>
                 <td class="text-center">
-                    <a href="" class="btn btn-sm btn-outline-primary">
+                    <a href="{{ route('exercicios.editar') }}?id=1" class="btn btn-sm btn-outline-primary">
                         <i class="bi bi-pencil"></i> Editar
                     </a>
                     <button type="button"
@@ -89,3 +89,4 @@
     </table>
 
 </div>
+@endsection
