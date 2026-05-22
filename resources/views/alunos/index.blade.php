@@ -14,7 +14,6 @@
         </div>
 
         <div class="d-flex gap-2">
-            <a href="/" class="btn btn-secondary btn-sm "><i class="bi bi-arrow-left"></i> Voltar</a>
             <a href="{{ route('alunos.cadastrar') }}" class="btn btn-primary btn-sm"><i class="bi bi-person-add"></i> Cadastrar Aluno</a>
         </div>
     </div>

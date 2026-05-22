@@ -65,7 +65,7 @@
                 <i class="bi bi-card-list"></i> Planos
             </a>
 
-            <a href=""
+            <a href="{{route('funcionarios.index')}}"
                 class="nav-link rounded px-3 py-2 d-flex align-items-center gap-2
                 {{ request()->routeIs('funcionarios.*') ? 'bg-primary text-white' : 'text-secondary' }}">
                 <i class="bi bi-person-badge"></i> Funcionários

@@ -12,10 +12,6 @@
             </h3>
             <small class="text-muted">Gerenciamento de avaliações dos alunos</small>
         </div>
-
-        <a class="btn btn-outline-secondary btn-sm" href="/">
-            <i class="bi bi-arrow-left"></i> Voltar
-        </a>
     
     </div>
         <div class="row mb-4">

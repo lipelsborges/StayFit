@@ -5,6 +5,7 @@ use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\ExerciciosController;
 use App\Http\Controllers\PlanosController;
+use App\Http\Controllers\FuncionariosController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
@@ -31,6 +32,9 @@ Route::get('/exercicios/editar', [ExerciciosController::class, 'editar'])->name(
 Route::get('/planos', [PlanosController::class, 'index'])->name('planos.index');
 Route::get('/planos/cadastrar', [PlanosController::class, 'cadastrar'])->name('planos.cadastrar');
 Route::get('/planos/editar', [PlanosController::class, 'editar'])->name('planos.editar');
+
+//Funcionários
+Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios.index');
 
 
 // Route::get('/users', [UserController::class, 'index']);

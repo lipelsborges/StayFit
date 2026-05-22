@@ -14,9 +14,6 @@
         </div>
 
         <div class="d-flex gap-2">
-            <a class="btn btn-outline-secondary btn-sm" href="/">
-                <i class="bi bi-arrow-left"></i> Voltar
-            </a>
             <a class="btn btn-success btn-sm" href="{{ route('exercicios.cadastrar') }}">
                 <i class="fa-solid fa-plus"></i> Cadastrar Exercício
             </a>
