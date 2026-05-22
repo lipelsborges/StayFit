@@ -11,8 +11,4 @@ class SiteController extends Controller
     return view('layout.app');
    }
 
-   public function aluno()
-   {
-    return view('alunos.index');
-   }
 }
