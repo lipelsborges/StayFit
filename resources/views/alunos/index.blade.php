@@ -63,14 +63,15 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($alunos as $aluno)
                 <tr class="text-center">
-                    <td>Felipe</td>
-                    <td>17278537761</td>
-                    <td>08/04/2006</td>
-                    <td>Mensal</td>
+                    <td>{{ $aluno->nome }}</td>
+                    <td>{{ $aluno->cpf }}</td>
+                    <td>{{ $aluno->data_nascimento }}</td>
+                    <td>{{ $aluno->plano }}</td>
                     <td><span class="badge bg-success">Ativo</span></td>
                     <td>
-                        <a href="{{ route('alunos.editar') }}?id=1" class="btn btn-sm btn-outline-primary">
+                        <a href="{{ route('alunos.editar') }}?id={{ $aluno->id }}" class="btn btn-sm btn-outline-primary">
                             <i class="bi bi-pencil"></i> Editar
                         </a>
 
@@ -79,6 +80,7 @@
                         </button>
                     </td>
                 </tr>
+            @endforeach
         </tbody>
     </table>
     

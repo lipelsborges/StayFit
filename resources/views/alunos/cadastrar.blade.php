@@ -13,31 +13,31 @@
         </div>
 
     </div>
-
-    <form method="post">
+    
+    <form method="post" action="{{route('alunos.cadastrarAluno')}}">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome Completo</label>
-            <input type="text" class="form-control form-control-sm" id="nome" placeholder="Digite o nome do aluno">
+            <input type="text" class="form-control form-control-sm" name="nome" placeholder="Digite o nome do aluno">
         </div>
 
         <div class="mb-3">
             <label for="cpf" class="form-label">CPF</label>
-            <input type="text" class="form-control form-control-sm" id="cpf" placeholder="Digite o CPF do aluno">
+            <input type="text" class="form-control form-control-sm" name="cpf" placeholder="Digite o CPF do aluno">
         </div>
 
         <div class="mb-3">
             <label for="nascimento" class="form-label">Data de Nascimento</label>
-            <input type="date" class="form-control form-control-sm" id="nascimento">    
+            <input type="date" class="form-control form-control-sm" name="nascimento">    
         </div>
 
         <div class="mb-3">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" class="form-control form-control-sm" id="telefone" placeholder="Digite o telefone do aluno">
+            <input type="text" class="form-control form-control-sm" name="telefone" placeholder="Digite o telefone do aluno">
         </div>
 
         <div class="mb-3">
             <label for="plano" class="form-label">Plano</label>
-            <select id="plano" class="form-select form-select-sm">
+            <select name="plano" class="form-select form-select-sm">
                 <option value="">Selecione um plano</option>
                 <option value="mensal">Básico</option>
                 <option value="semanal">Black</option>
