@@ -24,7 +24,7 @@
         style="width: 240px; height: 100vh; overflow-y: auto;">
 
 
-        <div class="px-3 border-bottom text-center">
+        <div class=" pt-3 px-3  text-center">
             <img
                 src="{{ asset('img/stayfit2.png') }}"
                 alt="Logo StayFit"
