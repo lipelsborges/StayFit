@@ -13,7 +13,7 @@
         </div>
 
         <div class="d-flex gap-2">
-            <a class="btn btn-success btn-sm" href="">
+            <a class="btn btn-success btn-sm" href="{{ route('planos.cadastrar') }}">
                 <i class="fa-solid fa-money-check"></i> Cadastrar Plano
             </a>
         </div>
@@ -27,13 +27,11 @@
             <tr class="text-center table-secondary">
                 <th>Nome do Plano</th>
                 <th>Valor</th>
-                <th>Duração</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             <tr class="text-center">
-                <td></td>
                 <td></td>
                 <td></td>
                 <td>

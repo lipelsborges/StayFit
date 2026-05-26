@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alunos;
+use App\Models\Aluno;
+use App\Models\Plano;
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
@@ -10,28 +11,48 @@ class AlunosController extends Controller
 
     public function aluno()
     {
-        $alunos = Alunos::all();
+        $alunos = Aluno::all();
 
         return view('alunos.index', compact('alunos'));
     }
 
     public function cadastrarAlunoView($dados = null)
     {
-        return view('alunos.cadastrar');
+        $planos = Plano::all();
+
+        return view('alunos.cadastrar', compact('planos'));
     }
 
     public function cadastrarAluno(Request $request)
     {
         $dados = $request->all();
-        $dados['email'] = 'felipe@gmail.com';
-
-        Alunos::create($dados);
+        Aluno::create($dados);
 
         return redirect()->route('alunos.index');
     }
 
-    public function editarAluno()
+    public function editarAluno($id)
     {
-        return view('alunos.editar');
+        $aluno = Aluno::findOrFail($id);
+        $planos = Plano::all();
+        return view('alunos.editar', compact('aluno', 'planos'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        
+        $aluno = Aluno::findOrFail($id);
+
+
+        
+        $aluno->update([
+            'nome'     => $request->nome,
+            'cpf'      => $request->cpf,
+            'datanasc' => $request->datanasc, 
+            'plano_id' => $request->plano_id, 
+        ]);
+
+       
+        return redirect()->route('alunos.index')->with('success', 'Aluno atualizado com sucesso!');
     }
 }

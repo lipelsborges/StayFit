@@ -18,59 +18,41 @@
         </div>
     </div>
 
-
-
-    <div class="row mb-4">
-        <div class="col-md-8 col-lg-6 mx-auto">
-            <div class="input-group input-group-sm shadow-sm">
-                <span class="input-group-text">
-                    <i class="bi bi-search text-muted"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Digite o nome ou CPF do aluno...">
-                <button class="btn btn-primary" type="button" id="button-search">
-                    <i class="bi bi-filter"></i> Pesquisar
-                </button>
-            </div>
-        </div>
-    </div>
-
-
-
     <div class="mb-3">
-        <select name="" id="" class="form-select form-select-sm w-auto">
+        <select id="filtro-status" class="form-select form-select-sm w-auto">
             <option value="">Filtrar por Status</option>
             <option value="">Todos</option>
-            <option value="">Ativos</option>
-            <option value="">Inativos</option>
+            <option value="Ativos">Ativos</option>
+            <option value="Inativos">Inativos</option>
         </select>
     </div>
 
-
-    <table class="table table-striped mt-3 caption-top">
-
-        <caption class="text-center py-3 text-secondary fs-6 fw-light">
-            <i class="bi bi-list-check"></i> Quantidade de registros: 1</strong>
-        </caption>
-        <thead>
-            <tr class="text-center table-secondary">
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>Plano</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($alunos as $aluno)
+    <div class="mt-4">
+        <table id="alunos-table" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Nome</th>
+                    <th class="text-center">CPF</th>
+                    <th class="text-center">Data de Nascimento</th>
+                    <th class="text-center">Plano</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($alunos as $aluno)
                 <tr class="text-center">
                     <td>{{ $aluno->nome }}</td>
                     <td>{{ $aluno->cpf }}</td>
-                    <td>{{ $aluno->data_nascimento }}</td>
-                    <td>{{ $aluno->plano }}</td>
+                    <td><?= date('d/m/Y', strtotime($aluno->datanasc)) ?></td>
+                    <td>{{ $aluno->plano->nome ?? 'N/A' }}</td>
+                @if($aluno->status_id === 1)
                     <td><span class="badge bg-success">Ativo</span></td>
+                @else
+                    <td><span class="badge bg-secondary">Inativo</span></td>
+                @endif
                     <td>
-                        <a href="{{ route('alunos.editar') }}?id={{ $aluno->id }}" class="btn btn-sm btn-outline-primary">
+                        <a href="{{ route('alunos.editar', $aluno->id) }}" class="btn btn-sm btn-outline-primary">
                             <i class="bi bi-pencil"></i> Editar
                         </a>
 
@@ -79,9 +61,38 @@
                         </button>
                     </td>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-    
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
+
+<style>
+    div.dataTables_wrapper div.dataTables_length,
+    div.dataTables_wrapper div.dataTables_filter {
+        margin-bottom: 12px !important;
+        padding: 4px 0;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#alunos-table').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+            },
+            pageLength: 10,
+            lengthMenu: [10, 15, 20]
+        });
+        $('#filtro-status').on('change', function() {
+            table.column(4).search($(this).val()).draw();
+        });
+    });
+</script>
+
 @endsection

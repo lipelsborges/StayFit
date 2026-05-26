@@ -17,7 +17,9 @@ Route::get('/', [SiteController::class, 'layout'])->name('index_page');
 Route::get('/aluno', [AlunosController::class, 'aluno'])->name('alunos.index');
 Route::get('/aluno/cadastrar', [AlunosController::class, 'cadastrarAlunoView'])->name('alunos.cadastrar');
 Route::post('/aluno/cadastrarAluno', [AlunosController::class, 'cadastrarAluno'])->name('alunos.cadastrarAluno');
-Route::get('/aluno/editar', [AlunosController::class, 'editarAluno'])->name('alunos.editar');
+Route::get('/aluno/{id}/editar', [AlunosController::class, 'editarAluno'])->name('alunos.editar');
+
+Route::put('/aluno/{id}', [AlunosController::class, 'update'])->name('alunos.update');
 
 
 //Avaliação
@@ -37,4 +39,4 @@ Route::get('/planos/editar', [PlanosController::class, 'editar'])->name('planos.
 Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios.index');
 
 
-// Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index']);
