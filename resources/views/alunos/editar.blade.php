@@ -2,14 +2,15 @@
 @section('title', 'Editar Aluno - StayFit')
 @section('content')
 
-
 <div class="container mt-4 pt-4">
     <div class="card mb-3">
         <div class="card-header">
             <h5 class="mb-0">Informações do Aluno</h5>
         </div>
         <form action="{{ route('alunos.update', $aluno->id) }}" method="POST">
+            
             @csrf
+            @method('PUT')
             <div class="card-body">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome Completo</label>
